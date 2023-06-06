@@ -24,7 +24,7 @@
 - [📝 License](#license)
 
 # 📖 Vet-clinic <a name="about-project"></a>
-Vet-clinic uses relational database to create the data structure for a vet clinic. 
+Vet-clinic is a project that contains queries for the creation of a relational database for a vet clinic.
 
 ## 🛠 Built With <a name="built-with"></a>
 ### Tech Stack <a name="tech-stack"></a>
@@ -40,10 +40,9 @@ Vet-clinic uses relational database to create the data structure for a vet clini
 
 ### Key Features <a name="key-features"></a>
 
-- **Animals table**
-- **Queries**
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+- **Queries to create `animals` tables**
+- **Queries to update tables**
+- **Queries to retrieve data from tables**
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -115,6 +114,6 @@ I would like to thank Microverse for inspiring me to do this project.
 
 ## 📝 License <a name="license"></a>
 
-This project is [MIT](https://github.com/newhoteng/Vet-clinic/blob/create-animals-table/LICENSE) licensed.
+This project is [MIT](https://github.com/newhoteng/Vet-clinic/blob/dev/LICENSE) licensed.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
