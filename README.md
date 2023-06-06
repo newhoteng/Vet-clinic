@@ -41,6 +41,7 @@ Vet-clinic uses relational database to create the data structure for a vet clini
 ### Key Features <a name="key-features"></a>
 
 - **Animals table**
+- **Queries**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
