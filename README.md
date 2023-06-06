@@ -8,7 +8,6 @@
   - [🛠 Built With](#built-with)
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
-  - [🚀 Live Demo](#live-demo)
 - [💻 Getting Started](#getting-started)
   - [Setup](#setup)
   - [Prerequisites](#prerequisites)
@@ -45,11 +44,6 @@ Vet-clinic uses relational database to create the data structure for a vet clini
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- LIVE DEMO -->
-
-## 🚀 Live Demo <a name="live-demo"></a>
-- Pending
-<!-- - [Live Demo Link](<replace-with-your-deployment-URL>) -->
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -98,7 +92,7 @@ Clone this repository to your desired folder:
 
 ## 🤝 Contributing <a name="contributing"></a>
 Contributions, issues, and feature requests are welcome!
-Feel free to check the [issues page](https://github.com/newhoteng/Metrics/issues).
+Feel free to check the [issues page](https://github.com/newhoteng/Vet-clinic/issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -120,6 +114,6 @@ I would like to thank Microverse for inspiring me to do this project.
 
 ## 📝 License <a name="license"></a>
 
-This project is [MIT](https://github.com/newhoteng/Vet-clinic/blob/main/LICENSE) licensed.
+This project is [MIT](https://github.com/newhoteng/Vet-clinic/blob/create-animals-table/LICENSE) licensed.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
