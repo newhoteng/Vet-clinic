@@ -58,7 +58,7 @@ SELECT * FROM animals;
 -- Delete all records in the animals table, then roll back the transaction
 BEGIN;
 
-TRUNCATE TABLE animals;
+DELETE FROM animals;
 
 SELECT * FROM animals;
 
@@ -103,7 +103,7 @@ WHERE escape_attempts = 0;
 SELECT AVG(weight_kg) AS average_weight FROM animals;
 
 -- Who escapes the most, neutered or not neutered animals?
-SELECT neutered, SUM(escape_attempts) AS total_escape_attempts FROM animals
+SELECT neutered, MAX(escape_attempts) AS total_escape_attempts FROM animals
 GROUP BY neutered ORDER BY total_escape_attempts DESC;
 -- neutered animals escape most
 
