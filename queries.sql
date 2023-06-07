@@ -1,5 +1,4 @@
 -- VET CLINIC DATABASE: CREATE ANIMALS TABLE
-
 -- Find all animals whose name ends in "mon"
 SELECT * FROM animals WHERE name LIKE '%mon';
 
@@ -26,7 +25,6 @@ SELECT * FROM animals WHERE weight_kg BETWEEN 10.4 AND 17.3;
 
 
 -- VET CLINIC DATABASE: QUERY AND UPDATE ANIMALS TABLE
-
 -- Set species column to unspecified then rollback changes, verify changes
 BEGIN;
 
@@ -103,8 +101,8 @@ WHERE escape_attempts = 0;
 SELECT AVG(weight_kg) AS average_weight FROM animals;
 
 -- Who escapes the most, neutered or not neutered animals?
-SELECT neutered, MAX(escape_attempts) AS total_escape_attempts FROM animals
-GROUP BY neutered ORDER BY total_escape_attempts DESC;
+SELECT neutered, MAX(escape_attempts) AS heighest_escape_attempt FROM animals
+GROUP BY neutered ORDER BY heighest_escape_attempt DESC;
 -- neutered animals escape most
 
 -- What is the minimum and maximum weight of each type of animal?
@@ -116,3 +114,41 @@ SELECT species, AVG(escape_attempts) as average_escape_attempt
 FROM animals
 WHERE date_of_birth BETWEEN '1990-01-01' AND '2000-12-31'
 GROUP BY species;
+
+-- VET CLINIC DATABASE: QUERY MULTIPLE TABLES
+-- What animals belong to Melody Pond?
+SELECT name AS animal, full_name AS owner FROM animals
+JOIN owners ON owners.id = animals.owner_id
+WHERE full_name = 'Melody Pond';
+
+-- List of all animals that are pokemon (their type is Pokemon)
+SELECT animals.name AS animal, species.name AS species FROM animals
+JOIN species ON species.id = animals.species_id
+WHERE species.name = 'Pokemon';
+
+-- List all owners and their animals, remember to include those that don't own any animal.
+SELECT full_name AS owner, name AS animal FROM owners
+LEFT JOIN animals ON animals.owner_id = owners.id;
+
+-- How many animals are there per species?
+SELECT species.name AS name_of_species, COUNT(*) AS number_of_animals
+FROM species JOIN animals ON animals.species_id = species.id
+GROUP BY species.name;
+
+-- List all Digimon owned by Jennifer Orwell
+SELECT animals.name AS animal FROM animals
+JOIN owners ON owners.id = animals.owner_id
+JOIN species ON species.id = animals.species_id
+WHERE species.name = 'Digimon' AND full_name = 'Jennifer Orwell';
+
+-- List all animals owned by Dean Winchester that haven't tried to escape.
+SELECT animals.name AS animal FROM animals
+JOIN owners ON owners.id = animals.owner_id
+WHERE owners.full_name = 'Dean Winchester' AND animals.escape_attempts = 0;
+
+-- Who owns the most animals?
+SELECT full_name AS name, COUNT(*) AS number_of_animals FROM owners
+JOIN animals ON animals.owner_id = owners.id
+GROUP BY full_name
+ORDER BY number_of_animals DESC
+LIMIT 1;
