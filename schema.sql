@@ -37,6 +37,6 @@ ADD CONSTRAINT species_fk FOREIGN KEY (species_id) REFERENCES species(id)
 ON DELETE CASCADE;
 
 -- Add column owner_id which is a foreign key referencing the owners table
-ALTER TABLE animals ADD owners_id INT,
-ADD CONSTRAINT owners_fk FOREIGN KEY (owners_id) REFERENCES owners(id)
+ALTER TABLE animals ADD owner_id INT,
+ADD CONSTRAINT owner_fk FOREIGN KEY (owner_id) REFERENCES owners(id)
 ON DELETE CASCADE;
