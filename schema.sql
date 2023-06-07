@@ -12,22 +12,31 @@ CREATE TABLE animals (
 -- Add species column to already created animals table
 ALTER TABLE animals ADD species VARCHAR(50);
 
+-- Create owners table
 CREATE TABLE owners (
   id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   full_name VARCHAR(50) NOT NULL,
   age INT NOT NULL
 );
 
+-- Create species table
 CREATE TABLE species (
   id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   name VARCHAR(50) NOT NULL
 );
 
-ALTER TABLE student_details  
-DROP COLUMN student_age;
+-- Remove column species for animals table
+BEGIN;
+ALTER TABLE animals DROP COLUMN species;
+SELECT * FROM animals;
+COMMIT;
 
-ALTER TABLE child_table
-ADD CONSTRAINT constraint_fk
-FOREIGN KEY (fk_columns)
-REFERENCES parent_table(parent_key_columns)
+-- Add column species_id which is a foreign key referencing species table
+ALTER TABLE animals ADD species_id INT,
+ADD CONSTRAINT species_fk FOREIGN KEY (species_id) REFERENCES species(id)
+ON DELETE CASCADE;
+
+-- Add column owner_id which is a foreign key referencing the owners table
+ALTER TABLE animals ADD owners_id INT,
+ADD CONSTRAINT owners_fk FOREIGN KEY (owners_id) REFERENCES owners(id)
 ON DELETE CASCADE;
