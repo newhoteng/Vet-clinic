@@ -40,3 +40,32 @@ ON DELETE CASCADE;
 ALTER TABLE animals ADD owner_id INT,
 ADD CONSTRAINT owner_fk FOREIGN KEY (owner_id) REFERENCES owners(id)
 ON DELETE CASCADE;
+
+-- Create vets table
+CREATE TABLE vets (
+  id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  name VARCHAR(50) NOT NULL,
+  age INT NOT NULL,
+  date_of_graduation DATE NOT NULL
+);
+
+CREATE TABLE specialization (
+  species_id INT REFERENCES species(id) ON UPDATE CASCADE ON DELETE CASCADE,
+  vet_id INT REFERENCES vets(id) ON UPDATE CASCADE ON DELETE CASCADE,
+  PRIMARY KEY (species_id, vet_id)
+);
+
+INSERT INTO specialization (species_id, vet_id)
+VALUES 
+  ('Agumon', '2020-02-03', 0, '1', 10.23),
+  ('Gabumon', '2018-11-15', 2, '1', 8),
+  ('Pikachu', '2021-01-07', 1, '0', 15.04),
+  ('Devimon', '2017-05-12', 5, '1', 11)
+;
+
+CREATE TABLE visits (
+  animal_id INT REFERENCES animals(id) ON UPDATE CASCADE ON DELETE CASCADE,
+  vet_id INT REFERENCES vets(id) ON UPDATE CASCADE ON DELETE CASCADE,
+  date_of_visit DATE NOT NULL,
+  PRIMARY KEY (animal_id, vet_id)
+);
