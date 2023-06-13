@@ -227,3 +227,17 @@ WHERE vet_id = (SELECT id FROM vets WHERE name = 'Maisy Smith')
 GROUP BY species.name
 ORDER BY number DESC
 LIMIT 1;
+
+-- PERFORMANCE AUDIT
+-- Modify "SELECT COUNT(*) FROM visits where animal_id = 4;" query to below
+-- Get the number of visits by animal_id = 4 from new column on animals table
+explain analyze SELECT total_vet_visits FROM animals
+WHERE id = 4;
+
+-- Modify "SELECT * FROM visits where vet_id = 2;" query to below
+-- Do query on newly created table
+explain analyze SELECT * FROM vet_id2_visit_records;
+
+-- Analyze after indexing email column on owners table
+explain analyze SELECT * FROM owners where email = 'owner_18327@mail.com';
+
