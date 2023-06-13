@@ -39,7 +39,7 @@ Vet-clinic is a project that contains queries for the creation of a relational d
 - **Queries to create `animals` tables**
 - **Queries to update tables**
 - **Queries to retrieve data from tables**
-- **Performance audit
+- **Performance audit**
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
