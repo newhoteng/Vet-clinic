@@ -194,3 +194,9 @@ VALUES
     '2021-01-11'
   )
 ;
+
+-- PERFORMANCE AUDIT
+-- Update total number of visits animal with id of 4 has made to vets
+UPDATE animals
+SET total_vet_visits = (SELECT COUNT(*) FROM visits where animal_id = 4)
+WHERE id = 4;
