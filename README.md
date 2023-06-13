@@ -39,6 +39,7 @@ Vet-clinic is a project that contains queries for the creation of a relational d
 - **Queries to create `animals` tables**
 - **Queries to update tables**
 - **Queries to retrieve data from tables**
+- **Performance audit
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -72,15 +73,18 @@ Clone this repository to your desired folder:
 - Twitter: [@twitterhandle](https://twitter.com/HarrietOteng1)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/harriet-oteng/)
 
+👤 **Author2**
+- GitHub: [@githubhandle](https://github.com/joyapisi)
+- Twitter: [@twitterhandle](https://twitter.com/joyphoebe300)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/joyapisi/)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [ ] **Animals' owners table**
-- [ ] **clinic employees table**
-- [ ] **visits table**
+- [ ] **Do more performance audits**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
