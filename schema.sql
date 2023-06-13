@@ -63,3 +63,15 @@ CREATE TABLE visits (
   vet_id INT REFERENCES vets(id) ON UPDATE CASCADE ON DELETE CASCADE,
   date_of_visit DATE NOT NULL
 );
+
+-- PERFORMANCE AUDIT
+-- Add total_vet_visits column to already created animals table
+ALTER TABLE animals ADD total_vet_visits INT;
+
+-- Copy visit records of vet with id of 2 into new table called vet_id2_visit_records
+SELECT * INTO vet_id2_visit_records
+FROM visits
+WHERE vet_id = 2;
+
+-- create an index to sort owners’ email alphabetically
+CREATE INDEX owners_email_asc ON owners(email ASC);
