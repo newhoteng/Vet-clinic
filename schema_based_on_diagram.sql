@@ -22,13 +22,12 @@ CREATE TABLE invoices (
   medical_history_id INT REFERENCES medical_histories(id) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
-
 CREATE TABLE invoice_items (
   id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   unit_price DECIMAL(10, 2) NOT NULL,
   quantity INT NOT NULL,
   total_price DECIMAL(10, 2) NOT NULL,
-  invoice_id INT REFERENCES invoice(id) ON UPDATE CASCADE ON DELETE CASCADE,
+  invoice_id INT REFERENCES invoices(id) ON UPDATE CASCADE ON DELETE CASCADE,
   treatment_id INT REFERENCES treatments(id) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
@@ -43,3 +42,10 @@ CREATE TABLE medical_histories_treatments (
   medical_histories_id int REFERENCES medical_histories(id),
   treatment_id int REFERENCES treatment(id)
 );
+
+-- Add foreign key indexes
+CREATE INDEX medical_histories_patient_id ON medical_histories(patient_id ASC);
+
+CREATE INDEX invoices_medical_history_id ON invoices(medical_history_id ASC);
+
+CREATE INDEX invoice_items_invoice_id ON invoice_items(invoice_id ASC);
