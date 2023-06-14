@@ -24,17 +24,17 @@ CREATE TABLE invoices (
 
 CREATE TABLE invoices(
   id SERIAL PRIMARY KEY NOT NULL,
-	total_amount decimal,
-	generated_at timestamp,
-	payed_at timestamp,
-	medical_history_id int,
+  total_amount decimal,
+  generated_at timestamp,
+  payed_at timestamp,
+  medical_history_id int,
   FOREIGN KEY (medical_history_id) REFERENCES medical_histories(id)
 );
 
 CREATE TABLE treatments (
   id SERIAL PRIMARY KEY NOT NULL,
-	type varchar(255),
-	name  varchar(255)
+  type varchar(255),
+  name  varchar(255)
 );
 
 CREATE TABLE medical_histories_treatment (
