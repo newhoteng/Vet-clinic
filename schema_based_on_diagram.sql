@@ -22,13 +22,14 @@ CREATE TABLE invoices (
   medical_history_id INT REFERENCES medical_histories(id) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
-CREATE TABLE invoices(
-  id SERIAL PRIMARY KEY NOT NULL,
-  total_amount decimal,
-  generated_at timestamp,
-  payed_at timestamp,
-  medical_history_id int,
-  FOREIGN KEY (medical_history_id) REFERENCES medical_histories(id)
+
+CREATE TABLE invoice_items (
+  id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  unit_price DECIMAL(10, 2) NOT NULL,
+  quantity INT NOT NULL,
+  total_price DECIMAL(10, 2) NOT NULL,
+  invoice_id INT REFERENCES invoice(id) ON UPDATE CASCADE ON DELETE CASCADE,
+  treatment_id INT REFERENCES treatments(id) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 CREATE TABLE treatments (
@@ -37,7 +38,7 @@ CREATE TABLE treatments (
   name  varchar(255)
 );
 
-CREATE TABLE medical_histories_treatment (
+CREATE TABLE medical_histories_treatments (
   id SERIAL PRIMARY KEY NOT NULL, 
   medical_histories_id int REFERENCES medical_histories(id),
   treatment_id int REFERENCES treatment(id)
